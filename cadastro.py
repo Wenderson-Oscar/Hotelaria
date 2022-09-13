@@ -17,3 +17,12 @@ class Reservar_Cliente(Conectar_bd):
         self.desconectar()
         print('Cadastro Realizado com Sucesso!')
 
+
+if __name__ == "__main__":
+   nome = str(input('Nome: '))
+   cpf = int(input('cpf: '))
+   phone = int(input('Phone: '))
+   cliente = Reservar_Cliente(nome, cpf, phone)
+   cliente.inserir()
+
+

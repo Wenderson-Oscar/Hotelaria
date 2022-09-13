@@ -24,9 +24,9 @@ def main():
     if op == "1":
         tela_reserva()
     elif op == "2":
-        name = input('Nome: ')
-        ident = input('CPF: ')
-        telef = input('PHONE: ')
+        name = str(input('Nome: '))
+        ident = int(input('CPF: '))
+        telef = int(input('PHONE: '))
         com = conexao.Conectar_bd()
         sql = "SELECT cpf FROM cadastro WHERE cpf = %s"
         vall = (ident,)
@@ -50,20 +50,24 @@ def main():
         print('| 0 | -> VOLTAR')
         desej = input('Serviço Desejado: ')
         if desej == '1':
-            cliente = Frigobar(None, None ,None,None)
+            cpf = int(input('CPF: '))
+            cliente = Frigobar(None, None ,None,cpf)
             cliente.frigobar_pedido()
             return main()
         elif desej == '2':
-            ident = input('CPF: ')
+            ident = int(input('CPF: '))
             com = conexao.Conectar_bd()
             sql = "SELECT cpf FROM cadastro WHERE cpf = %s"
             vall = (ident,)
             com.conectar()
             com.cu.execute(sql, vall)
             resultado = com.cu.fetchall()
+            print(resultado)
             if len(resultado) >= 1:
-                cliente = Lavanderia(None, None, None)
-                cliente.mostrar()
+                cliente = Lavanderia.mostrar()
+                lavar = input('Deseja Lavar [S/N]: ').upper()
+                passar = input('Deseja Passar [S/N]: ').upper()
+                cliente = Lavanderia(passar, lavar, ident)
                 cliente.passar_roupa()
                 cliente.lavar_roupa()
                 return main()

@@ -27,7 +27,7 @@ class Pagamento(Quarto_Simples):
         |PAGAMENTO|
         R$: {self.resultado}
         PIX: CNPJ | 34134819312''')
-        self.comando_dql("SELECT nome_funcionario FROM quarto_simples WHERE idquarto_simples = 1")
+        self.comando_dql("SELECT nome_funcionario FROM quarto_simples WHERE idquarto_simples = 2")
         print(f'Nome Funcionario: {self.resultado}')
         sleep(2)
 
@@ -40,7 +40,7 @@ class Pagamento(Quarto_Simples):
         |PAGAMENTO|
         R$: {self.resultado}
         PIX: CNPJ | 34134819312''')
-        self.comando_dql("SELECT nome_funcionario FROM quarto_simples WHERE idquarto_simples = 1")
+        self.comando_dql("SELECT nome_funcionario FROM quarto_simples WHERE idquarto_simples = 3")
         print(f'Nome Funcionario: {self.resultado}')
         sleep(2)
 
@@ -53,14 +53,14 @@ class Pagamento(Quarto_Simples):
         |PAGAMENTO|
         R$: {self.resultado}
         PIX: CNPJ | 34134819312''')
-        self.comando_dql("SELECT nome_funcionario FROM quarto_simples WHERE idquarto_simples = 1")
+        self.comando_dql("SELECT nome_funcionario FROM quarto_simples WHERE idquarto_simples = 4")
         print(f'Nome Funcionario: {self.resultado}')
         sleep(2)
 
 
-""" cliente = Pagamento(None)
-cliente.pagamento_simples()
-cliente.pagamento_duplo()
-cliente.pagamento_casal()
-cliente.pagamento_luxo()
- """
+if __name__ == "__main__":
+    cliente = Pagamento(None)
+    cliente.pagamento_simples()
+    cliente.pagamento_duplo()
+    cliente.pagamento_casal()
+    cliente.pagamento_luxo()

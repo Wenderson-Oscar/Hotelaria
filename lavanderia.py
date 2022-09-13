@@ -1,3 +1,4 @@
+from time import sleep
 from cadastro import Reservar_Cliente
 
 class Lavanderia(Reservar_Cliente):
@@ -8,7 +9,7 @@ class Lavanderia(Reservar_Cliente):
         self.lavar = lavar
 
 
-    def mostrar(self):
+    def mostrar():
         print(f'''
         |Passar | R$: 10
         |Lavar  | R$: 25
@@ -16,7 +17,6 @@ class Lavanderia(Reservar_Cliente):
 
 
     def passar_roupa(self):
-        self.lavar = input('Deseja Lavar [S/N]: ').upper()
         if self.lavar == 'S':
             self.quantidade = int(input('Quantidade de peças: '))
             print('Obrigado, Volte Sempre')
@@ -25,12 +25,10 @@ class Lavanderia(Reservar_Cliente):
             print('|PAGAMENTO|')
             self.pix = 'PIX: CNPJ | 34134819312'
             print(self.pix)
-        else:
-            print('Volte Sempre')
+            sleep(2)
 
 
     def lavar_roupa(self):
-        self.passar = input('Deseja Passar [S/N]: ').upper()
         if self.passar == 'S':
             self.quantidade = int(input('Quantidade de peças: '))
             calculo = 25*self.quantidade
@@ -38,12 +36,14 @@ class Lavanderia(Reservar_Cliente):
             print('|PAGAMENTO|')
             self.pix = 'PIX: CNPJ | 34134819312'
             print(self.pix)
-        else:
-            print('Volte Sempre')
+            sleep(2)
 
 
-""" cliente = Lavanderia(None, None, None)
-cliente.mostrar()
-cliente.passar_roupa()
-cliente.lavar_roupa()
- """
+if __name__ == "__main__":
+    cpf = int(input('CPF: '))
+    cliente = Lavanderia.mostrar()
+    lavar = input('Deseja Lavar [S/N]: ').upper()
+    passar = input('Deseja Passar [S/N]: ').upper()
+    cliente = Lavanderia(passar, lavar, cpf)
+    cliente.passar_roupa()
+    cliente.lavar_roupa()
