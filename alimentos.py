@@ -1,34 +1,32 @@
-from conexao import Conectar_bd
+from time import sleep 
 
-class Servico_Quarto(Conectar_bd):
+class Servico_Quarto:
 
-    def __init__(self, cafe_manha, almoco, jantar, lanche) -> None:
-        self._cafe_manha = cafe_manha
-        self._almoco = almoco 
-        self._jantar = jantar
-        self._lanche = lanche
-
-
-    def fazer_pedido(self):
-        print('''
-        ''')
-        self.comando_dql("SELECT a.cafe_manha, pa.cafe, a.almoco, pa.almoco, a.jantar, pa.jantar, a.lanche, pa.lanche FROM preco_alimentos pa, alimentos a")
-        for p, v in enumerate(self.resultado):
-            print(f'''
-            {p} = {v[:2]}
-            {p+1} = {v[2:4]}
-            {p+2} = {v[4:6]}
-            {p+3} = {v[6:]}''')
-        self.pedir = input('Fazer Pedido: ')
-        self.conectar()
-        sql = "UPDATE alimentos SET cliente = %s WHERE idalimentos = %s"
-        val = (self.pedir, 1)
-        self.cu.execute(sql, val)
-        self.con.commit()
-        self.desconectar()
-        print('Pedido feito com Sucesso')
-        self.total = list(self.pedir)
+    def __init__(self):
+        self.cafe_manha = 'Café Com Pão'
+        self.almoco = 'Arroz, Feijão, Carne, Fruta, Suco'
+        self.jantar = 'Arroz, Feijão, Frango'
+        self.lanche = 'Suco, Pastel'
 
 
-#cliente = Servico_Quarto(None, None, None, None)
-#cliente.fazer_pedido()
+    def cardapio(self):
+        print(f'0 -> {self.cafe_manha}| Preço: R$: 10')
+        print(f'1 -> {self.almoco}| Preço: R$: 40 ')
+        print(f'2 -> {self.jantar}| Preço: R$: 35')
+        print(f'3 -> {self.lanche}| Preço: R$: 7')
+
+
+    def fazer_pedido(self, pedir):
+        if pedir >= 0 and pedir <= 3:
+            print('PIX: CNPJ | 34134819312')
+            sleep(4)
+        else:
+            print('Invalido')
+            sleep(2)
+
+
+if __name__ == "__main__":
+    cliente = Servico_Quarto()
+    cliente.cardapio()
+    fazer_pedido = int(input('Escolha o Pedido: '))
+    cliente.fazer_pedido(fazer_pedido)

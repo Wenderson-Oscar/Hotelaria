@@ -15,9 +15,39 @@ class Check_In(Conectar_bd):
         print(f'Reserva Feita na data: {self.data_entrada.strftime("%x")}')
 
 
-    def check_in_quarto(self):
+    def check_in_quarto_simples(self):
         self.conectar()
         sql = "UPDATE quarto_simples SET check_in = %s WHERE idquarto_simples = %s"
+        val = (self.data_entrada, self.n_quarto)
+        self.cu.execute(sql, val)
+        self.con.commit()
+        self.desconectar()
+        print('Check_in Realizado Com Sucesso')
+
+
+    def check_in_quarto_duplo(self):
+        self.conectar()
+        sql = "UPDATE quarto_duplo SET check_in = %s WHERE idquarto_duplo = %s"
+        val = (self.data_entrada, self.n_quarto)
+        self.cu.execute(sql, val)
+        self.con.commit()
+        self.desconectar()
+        print('Check_in Realizado Com Sucesso')
+
+    
+    def check_in_quarto_casal(self):
+        self.conectar()
+        sql = "UPDATE quarto_casal SET check_in = %s WHERE idquarto_casal = %s"
+        val = (self.data_entrada, self.n_quarto)
+        self.cu.execute(sql, val)
+        self.con.commit()
+        self.desconectar()
+        print('Check_in Realizado Com Sucesso')
+
+
+    def check_in_quarto_luxo(self):
+        self.conectar()
+        sql = "UPDATE quarto_luxo SET check_in = %s WHERE idquarto_luxo = %s"
         val = (self.data_entrada, self.n_quarto)
         self.cu.execute(sql, val)
         self.con.commit()
@@ -35,9 +65,36 @@ class Check_An(Check_In):
         print(f'Fim da Estadia: {self.data_saida.strftime("%x")}')
 
 
-    def check_an_quarto(self):
+    def check_an_quarto_simples(self):
         self.conectar()
         sql = "UPDATE quarto_simples SET check_an = %s WHERE idquarto_simples = %s"
+        val = (self.data_saida, self.n_quarto)
+        self.cu.execute(sql, val)
+        self.con.commit()
+        self.desconectar()
+
+    
+    def check_an_quarto_duplo(self):
+        self.conectar()
+        sql = "UPDATE quarto_duplo SET check_an = %s WHERE idquarto_duplo = %s"
+        val = (self.data_saida, self.n_quarto)
+        self.cu.execute(sql, val)
+        self.con.commit()
+        self.desconectar()
+
+
+    def check_an_quarto_casal(self):
+        self.conectar()
+        sql = "UPDATE quarto_casal SET check_an = %s WHERE idquarto_casal = %s"
+        val = (self.data_saida, self.n_quarto)
+        self.cu.execute(sql, val)
+        self.con.commit()
+        self.desconectar()
+
+    
+    def check_an_quarto_luxo(self):
+        self.conectar()
+        sql = "UPDATE quarto_luxo SET check_an = %s WHERE idquarto_luxo = %s"
         val = (self.data_saida, self.n_quarto)
         self.cu.execute(sql, val)
         self.con.commit()

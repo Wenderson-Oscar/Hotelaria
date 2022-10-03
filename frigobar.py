@@ -12,8 +12,8 @@ class Frigobar(Reservar_Cliente):
 
     def frigobar_pedido(self):
         self.comando_dql("SELECT cpf FROM cadastro WHERE cpf = '"+str(self.cpf)+"'")
-        print(self.resultado)
         if len(self.resultado) >= 1:
+            print(f'CPF Valido {self.resultado}')
             self.n_quarto = int(input('N° Quarto: '))
             self.comando_dql("SELECT itens, quantidade, preco_item FROM frigobar WHERE idfrigobar = '"+str(self.n_quarto)+"'")
             for x, y in enumerate(self.resultado):
@@ -44,34 +44,34 @@ class Frigobar(Reservar_Cliente):
                 self.cu.execute(sql)
                 self.con.commit()
                 self.desconectar()
-                if self.n_quarto == '1':
+                if self.n_quarto == 1:
                     calculo = 10*self.item
                     print(f'''
-                    Quarto Simples
+                    Categoria Simples
                     Preço: {calculo}
                     |PAGAMENTO|
                     PIX: CNPJ | 34134819312''')
                     sleep(2)
-                elif self.n_quarto == '2':
+                elif self.n_quarto == 2:
                     calculo = 70*self.item
                     print(f'''
-                    Quarto Casal
+                    Categoria Casal
                     Preço: {calculo}
                     |PAGAMENTO|
                     PIX: CNPJ | 34134819312''')
                     sleep(2)
-                elif self.n_quarto == '3':
+                elif self.n_quarto == 3:
                     calculo = 250*self.item
                     print(f'''
-                    Quarto Luxo
+                    Categoria Luxo
                     Preço: {calculo}
                     |PAGAMENTO|
                     PIX: CNPJ | 34134819312''')
                     sleep(2)
-                elif self.n_quarto == '4':
+                elif self.n_quarto == 4:
                     calculo = 15*self.item
                     print(f'''
-                    Quarto Duplo
+                    Categoria Duplo
                     Preço: {calculo}
                     |PAGAMENTO|
                     PIX: CNPJ | 34134819312''')

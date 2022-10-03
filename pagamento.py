@@ -4,7 +4,7 @@ from quartos import Quarto_Simples
 class Pagamento(Quarto_Simples):
 
     def __init__(self, preco):
-        super().__init__(None,None,None,None,None,None,None,None,preco)
+        super().__init__(None,None,preco, None)
 
 
     def pagamento_simples(self):
@@ -15,7 +15,7 @@ class Pagamento(Quarto_Simples):
         |PAGAMENTO|
         R$: {self.resultado}
         PIX: CNPJ | 34134819312''')
-        self.comando_dql("SELECT nome_funcionario FROM quarto_simples WHERE idquarto_simples = 1")
+        self.comando_dql("SELECT nome_funcionario FROM servico_quarto WHERE idservico_quarto = 1")
         print(f'Nome Funcionario: {self.resultado}')
         sleep(2)
 
@@ -27,7 +27,7 @@ class Pagamento(Quarto_Simples):
         |PAGAMENTO|
         R$: {self.resultado}
         PIX: CNPJ | 34134819312''')
-        self.comando_dql("SELECT nome_funcionario FROM quarto_simples WHERE idquarto_simples = 2")
+        self.comando_dql("SELECT nome_funcionario FROM servico_quarto WHERE idservico_quarto = 2")
         print(f'Nome Funcionario: {self.resultado}')
         sleep(2)
 
@@ -40,7 +40,7 @@ class Pagamento(Quarto_Simples):
         |PAGAMENTO|
         R$: {self.resultado}
         PIX: CNPJ | 34134819312''')
-        self.comando_dql("SELECT nome_funcionario FROM quarto_simples WHERE idquarto_simples = 3")
+        self.comando_dql("SELECT nome_funcionario FROM servico_quarto WHERE idservico_quarto = 3")
         print(f'Nome Funcionario: {self.resultado}')
         sleep(2)
 
@@ -53,7 +53,7 @@ class Pagamento(Quarto_Simples):
         |PAGAMENTO|
         R$: {self.resultado}
         PIX: CNPJ | 34134819312''')
-        self.comando_dql("SELECT nome_funcionario FROM quarto_simples WHERE idquarto_simples = 4")
+        self.comando_dql("SELECT nome_funcionario FROM servico_quarto WHERE idservico_quarto = 4")
         print(f'Nome Funcionario: {self.resultado}')
         sleep(2)
 
