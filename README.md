@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ```
 A seguir teremos que fazer a importação do banco **Fantasma**
 
-obs: Na Pasta Hotelaria iremos aperta com o botão direito no mause e entra na opção *abrir no terminal* ou caso tenha um conhecimento basico em comandos linux apenas navegue ate o diretorio dump 
+obs: Na Pasta Hotelaria iremos aperta com o botão direito no mouse e entra na opção *abrir no terminal* ou caso tenha um conhecimento basico em comandos linux apenas navegue ate o diretorio dump 
 
 Primeiramente teremos que entrar no terminal na pasta Hotelaria e executar o comando
 ```
